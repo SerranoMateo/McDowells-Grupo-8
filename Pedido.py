@@ -42,6 +42,8 @@ while True:
 
 	vuelto = Abono - Total
 
+	f.total_en_caja += (Abono - vuelto)
+
 	print("Su vuelto es de $", vuelto)
 
 	t.sleep(3)

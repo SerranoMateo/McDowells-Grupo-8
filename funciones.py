@@ -1,3 +1,4 @@
+total_en_caja = 2000
 
 def verificar_vacio(dato):
 	while dato == " " or dato == "":

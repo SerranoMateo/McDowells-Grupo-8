@@ -46,23 +46,23 @@ while x == True:
 			import Pedido
 		elif opcion == "2":
 			f = open("registro.txt", "a")
-			f.write("OUT " + t.asctime() + " " + "Encargad@ " + str(Encargado.capitalize()) + " " + "$" + str("total en caja") + "\n")
+			f.write("OUT " + t.asctime() + " " + "Encargad@ " + str(Encargado.capitalize()) + " " + "$" + str(fu.total_en_caja) + "\n")
 			f.write("###########################################\n")
 			f.close()
 			break
 		elif opcion == "3":
 			print("Gracias por usar el programa")
 			f = open("registro.txt", "a")
-			f.write("OUT " + t.asctime() + " " + "Encargad@ " + str(Encargado.capitalize()) + " " + "$" + str("total en caja") + "\n")
+			f.write("OUT " + t.asctime() + " " + "Encargad@ " + str(Encargado.capitalize()) + " " + "$" + str(fu.total_en_caja) + "\n")
 			f.write("###########################################\n")
 			f.close()
 			t.sleep(1)
+			x = False
 			break
 		else:
 			print("Error, esa opcion no existe")
 			t.sleep(2)
 			os.system("cls")
-			x = False
 			break
 	
 	
