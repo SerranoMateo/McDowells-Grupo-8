@@ -1,8 +1,10 @@
 import os
 import time as t
 import openpyxl as op
+from openpyxl import workbook
 import funciones as f
 from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Alignment
 
 ComboS = 650
 ComboD = 700
@@ -19,9 +21,33 @@ try:
 	wb = load_workbook("Pedidos.xlsx")
 except:
 	wb = Workbook()
+	ws1 = workbook.active
+
+	Cel1 = ws1["A1"] = "Cliente"
+	Cel1 = Alignment(horizontal='center')
+
+	Cel2 = ws1["B1"] = "Fecha"
+	Cel2 = Alignment(horizontal='center')
+	Cel2 = ws1.column_dimensions['B'].width = 25
+
+	Cel3 = ws1["C1"] = "Combo S"
+	Cel3 = Alignment(horizontal='center')
+
+	Cel4 = ws1["D1"] = "Combo D"
+	Cel4 = Alignment(horizontal='center')
+
+	Cel5 = ws1["E1"] = "Combo T"
+	Cel5 = Alignment(horizontal='center')
+
+	Cel6 = ws1["F1"] = "Flurby"
+	Cel6 = Alignment(horizontal='center')
+
+	Cel7 = ws1["G1"] = "Total"
+	Cel7 = Alignment(horizontal='center')
+
+	wb.save(filename="pedidos.xlsx")
 
 ws = wb.active
-
 
 
 while True:
@@ -54,6 +80,7 @@ while True:
 	Abono = f.verificar_vacio(Abono)
 	Abono = f.verificar_numero_str(Abono)
 	Abono = f.convertir(Abono)
+	Abono = f.verif_vuelto(Total, Abono)
 
 	vuelto = Abono - Total
 
