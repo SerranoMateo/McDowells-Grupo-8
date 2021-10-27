@@ -1,13 +1,28 @@
 import os
 import time as t
-import openpyxl
+import openpyxl as op
 import funciones as f
+from openpyxl import Workbook, load_workbook
 
 ComboS = 650
 ComboD = 700
 ComboT = 800
 Flurby = 250
+
+
 os.system("cls")
+
+
+wb = op.Workbook()
+
+try:
+	wb = load_workbook("Pedidos.xlsx")
+except:
+	wb = Workbook()
+
+ws = wb.active
+
+
 
 while True:
 	print("Ingrese nombre del cliente: ")
@@ -44,6 +59,10 @@ while True:
 
 	f.total_en_caja += (Abono - vuelto)
 
+	Fecha = t.asctime()
+
+	ws.append([Cliente, Fecha, Cant_comboS, Cant_comboD, Cant_comboT, Cant_Flurby, Total])
+	wb.save("Pedidos.xlsx")
 	print("Su vuelto es de $", vuelto)
 
 	t.sleep(3)
